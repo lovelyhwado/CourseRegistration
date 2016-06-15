@@ -10,10 +10,14 @@
 <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-	<h1>Course Registration System</h1>
-
-
-
+	<h1>Course Registration System - Update/Delete a Student</h1>
+	<form>
+    <div class="form-group">
+      <label for="student-id">Student Id</label>
+      <input type="text" name="student-id" class="form-control" id="student-id"/>
+    </div>
+    <button type="submit" name="btn btn-primary">Delete</button>
+	</form>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
