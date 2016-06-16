@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
       <label for="status">Status</label>
-      <select type="text" name="status" class="form-control" id="status">
+      <select name="status" class="form-control" id="status">
         <option value="under-graduate">Under Graduate</option>
         <option value="postgraduate">Post Graduate</option>
       </select>
