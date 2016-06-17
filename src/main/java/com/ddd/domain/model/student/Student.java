@@ -1,5 +1,7 @@
 package com.ddd.domain.model.student;
 
+import org.apache.commons.lang.Validate;
+
 import com.ddd.domain.shared.Entity;
 
 public class Student implements Entity<Student> {
@@ -10,6 +12,26 @@ public class Student implements Entity<Student> {
 	public Student(final StudentId studentId) {
 		this.studentId = studentId;
 	}
+	
+	public StudentId studentId(){
+		return studentId;
+	}
+	
+	public Schedule schedule(){
+		return schedule;
+	}
+	
+	public ReportCard reportCard(){
+		return reportCard;
+	}
+	
+	public void assignSchedule(Schedule schedule){
+		Validate.notNull(schedule, "schedule is required for assignment");
+		
+		this.schedule = schedule;
+		this.reportCard = reportCard.updateReportCard(schedule);
+	}
+	
 	@Override
 	public boolean sameIdentityAs(final Student other) {
 		return other != null && studentId.sameValueAs(other.studentId);
