@@ -6,4 +6,6 @@ public interface StudentRepository {
 	Student find(StudentId studentId);
 	List<Student> findAll();
 	void store(Student student);
+	void update(Student student);
+	void delete(StudentId studentId);
 }
