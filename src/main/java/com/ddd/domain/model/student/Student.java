@@ -10,6 +10,8 @@ public class Student implements Entity<Student> {
 	private ReportCard reportCard;
 	
 	public Student(final StudentId studentId) {
+		Validate.notNull(studentId, "Student ID is required");
+		
 		this.studentId = studentId;
 	}
 	

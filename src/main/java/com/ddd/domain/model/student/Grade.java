@@ -3,16 +3,19 @@ package com.ddd.domain.model.student;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.ddd.domain.model.course.CourseOffering;
 import com.ddd.domain.shared.ValueObject;
 
 public class Grade implements ValueObject<Grade> {
 	
 	private GradeValue gradeValue;
+	private CourseOffering courseOffering;
 	
 	@Override
 	public boolean sameValueAs(Grade other) {
 		return other != null && new EqualsBuilder().
 				append(this.gradeValue, other.gradeValue).
+				append(this.courseOffering, other.courseOffering).
 				isEquals();
 	}
 
@@ -20,6 +23,7 @@ public class Grade implements ValueObject<Grade> {
 	public int hashCode() {
 		return new HashCodeBuilder().
 				append(gradeValue).
+				append(courseOffering).
 				toHashCode();
 	}
 
