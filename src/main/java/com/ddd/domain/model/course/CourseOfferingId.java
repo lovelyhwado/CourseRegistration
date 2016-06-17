@@ -2,13 +2,12 @@ package com.ddd.domain.model.course;
 
 import com.ddd.domain.shared.ValueObject;
 
-public class Course implements ValueObject<Course> {
+public final class CourseOfferingId implements ValueObject<CourseOfferingId> {
 
 	@Override
-	public boolean sameValueAs(Course other) {
+	public boolean sameValueAs(CourseOfferingId other) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 
 }
