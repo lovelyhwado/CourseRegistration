@@ -15,7 +15,6 @@ public class Schedule implements ValueObject<Schedule>{
 	public Schedule(final List<CourseOffering> courseOfferings) {
 		Validate.notNull(courseOfferings, "Course offerings is required");
 		Validate.noNullElements(courseOfferings);
-		Validate.notEmpty(courseOfferings);
 		
 		this.courseOfferings = courseOfferings;
 	}
