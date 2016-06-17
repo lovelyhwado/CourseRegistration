@@ -7,7 +7,7 @@ import com.ddd.domain.model.student.Schedule;
 import com.ddd.domain.model.student.StudentId;
 
 public interface ScheduleMaintenanceService {
-	Schedule create(StudentId studentId, List<CourseOffering> courseOfferings);
+	Schedule add(StudentId studentId, List<CourseOffering> courseOfferings);
 	Schedule update(StudentId studentId, List<CourseOffering> courseOfferings);
 	Schedule delete(StudentId studentId);
 }
