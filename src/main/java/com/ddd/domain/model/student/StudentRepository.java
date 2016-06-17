@@ -1,5 +1,9 @@
 package com.ddd.domain.model.student;
 
-public interface StudentRepository {
+import java.util.List;
 
+public interface StudentRepository {
+	Student find(StudentId studentId);
+	List<Student> findAll();
+	void store(Student student);
 }
