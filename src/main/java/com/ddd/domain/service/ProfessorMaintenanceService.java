@@ -1,4 +1,4 @@
-package com.ddd.domain.model.service;
+package com.ddd.domain.service;
 
 import com.ddd.domain.model.professor.ProfessorID;
 

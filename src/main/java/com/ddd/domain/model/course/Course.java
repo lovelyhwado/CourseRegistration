@@ -16,5 +16,4 @@ public class Course implements ValueObject<Course> {
 		return other != null && name.equals(other.name);
 	}
 
-
 }

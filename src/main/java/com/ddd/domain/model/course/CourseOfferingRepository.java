@@ -1,5 +1,11 @@
 package com.ddd.domain.model.course;
 
-public interface CourseOfferingRepository {
+import java.util.List;
 
+public interface CourseOfferingRepository {
+	
+	CourseOffering find(CourseOfferingId courseOfferingId);
+
+	List<CourseOfferingId> findAll();
+	List<CourseOfferingId> findToTeach();
 }
