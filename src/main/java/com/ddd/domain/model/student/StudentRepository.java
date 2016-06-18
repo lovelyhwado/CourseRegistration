@@ -8,4 +8,5 @@ public interface StudentRepository {
 	void store(Student student);
 	void update(Student student);
 	void delete(StudentId studentId);
+	StudentId nextStudentId();
 }

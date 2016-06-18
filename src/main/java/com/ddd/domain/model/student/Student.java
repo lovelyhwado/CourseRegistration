@@ -6,13 +6,19 @@ import com.ddd.domain.shared.Entity;
 
 public class Student implements Entity<Student> {
 	private StudentId studentId;
+	private Name name;
+	private DateOfBirth dateOfBirth;
 	private Schedule schedule;
 	private ReportCard reportCard;
 	
-	public Student(final StudentId studentId) {
+	public Student(final StudentId studentId, final Name name, final DateOfBirth dateOfBirth) {
 		Validate.notNull(studentId, "Student ID is required");
+		Validate.notNull(name);
+		Validate.notNull(dateOfBirth);
 		
 		this.studentId = studentId;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
 	}
 	
 	public StudentId studentId(){
