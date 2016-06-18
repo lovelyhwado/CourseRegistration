@@ -8,17 +8,16 @@ import com.ddd.domain.shared.ValueObject;
 
 public class ProfessorCourse implements ValueObject<ProfessorCourse>{
 	  private String Coursename;
-	  private String Coursetime;
-		
-	  public ProfessorCourse(String name, String time) 
+	  
+	  public ProfessorCourse(String name) 
 	  {
 		 this.Coursename = name;
-  		 this.Coursetime = time;
+  	
 	  }	
 	  
 	  @Override
 	  public boolean sameValueAs(final ProfessorCourse other) {
-	    return other != null && this.Coursename.equals(other.Coursename) &&  this.Coursetime.equals(other.Coursetime);
+	    return other != null && this.Coursename.equals(other.Coursename);
 	  }
 
 }

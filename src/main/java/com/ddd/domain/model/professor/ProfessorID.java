@@ -1,5 +1,7 @@
 package com.ddd.domain.model.professor;
 
+import org.apache.commons.lang.Validate;
+
 import com.ddd.domain.shared.ValueObject;
 
 
@@ -7,6 +9,11 @@ public class ProfessorID implements ValueObject<ProfessorID> {
 
 	  private String id;
 
+		public ProfessorID(String professorID) {
+			Validate.notNull(professorID);
+			this.id = professorID;
+		}
+		
 	  public String idString() {
 	    return id;
 	  }
