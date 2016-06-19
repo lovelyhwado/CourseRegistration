@@ -29,11 +29,4 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 			courseOffering.setRoster(new Roster(students));
 		}
 	}
-
-	@Override
-	public ReportCard fetchReportCardForCourseOfferings(List<CourseOffering> courseOfferings) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

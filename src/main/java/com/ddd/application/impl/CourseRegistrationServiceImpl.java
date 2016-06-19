@@ -66,6 +66,8 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 		
 		
 		
+		courseRegistrationService.AddStudentToRoster(courseOfferings, student);
+		
 //		student.assignSchedule(schedule);
 //		studentRepository.update(student);
 		
