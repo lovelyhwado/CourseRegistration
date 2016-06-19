@@ -1,10 +1,10 @@
 package com.ddd.application;
 
-import java.util.Date;
-
+import com.ddd.domain.model.student.DateOfBirth;
+import com.ddd.domain.model.student.Name;
 import com.ddd.domain.model.student.StudentId;
 
 public interface StudentMaintenanceService {
-	StudentId addNewStudent(final String name, final Date dateOfBirth);
-	
+	StudentId addNewStudent(final Name name, final DateOfBirth dateOfBirth);
+	public void updateStudent(StudentId studentId, Name name, DateOfBirth dateOfBirth);
 }

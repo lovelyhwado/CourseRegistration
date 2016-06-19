@@ -25,6 +25,14 @@ public class Student implements Entity<Student> {
 		return studentId;
 	}
 	
+	public Name name(){
+		return name;
+	}
+	
+	public DateOfBirth dateOfBirth(){
+		return dateOfBirth;
+	}
+	
 	public Schedule schedule(){
 		return schedule;
 	}
@@ -39,6 +47,17 @@ public class Student implements Entity<Student> {
 		this.schedule = schedule;
 		this.reportCard = reportCard.updateReportCard(schedule);
 	}
+	
+	public void setName(Name name){
+		Validate.notNull(name);
+		this.name = name;
+	}
+	
+	public void setDateOfBirth(DateOfBirth dateOfBirth){
+		Validate.notNull(dateOfBirth);
+		this.dateOfBirth = dateOfBirth;
+	}
+	
 	
 	@Override
 	public boolean sameIdentityAs(final Student other) {
