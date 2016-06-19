@@ -76,7 +76,18 @@ public class CourseOffering implements Entity<CourseOffering> {
 	public String toString() {
 		return courseOfferingId.toString();
 	}
-	
+	public Course course() {
+		return course;
+	}
+	public Roster roster() {
+		return roster;
+	}
+	public Day day() {
+		return day;
+	}
+	public Period period() {
+		return period;
+	}
 	CourseOffering() {
 		
 	}

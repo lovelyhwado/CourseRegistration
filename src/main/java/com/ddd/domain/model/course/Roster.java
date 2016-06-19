@@ -19,7 +19,7 @@ public class Roster implements ValueObject<Roster> {
 		this.students = students;
 	}
 	
-	public List<Student> roster() {
+	public List<Student> students() {
 		return students;
 	}
 	
