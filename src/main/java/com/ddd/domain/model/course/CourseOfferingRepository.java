@@ -8,4 +8,6 @@ public interface CourseOfferingRepository {
 
 	List<CourseOffering> findAll();
 	List<CourseOffering> findToTeach();
+	
+	void updateCourseOffering(CourseOffering courseOffering);
 }

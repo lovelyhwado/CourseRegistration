@@ -13,6 +13,7 @@ public class CourseRegistrationApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }
