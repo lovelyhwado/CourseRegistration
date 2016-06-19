@@ -18,15 +18,15 @@ public class CourseOfferingRepositoryHibernate extends HibernateRepository imple
 	}
 
 	@Override
-	public List<CourseOfferingId> findAll() {
+	public List<CourseOffering> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return getSession().createQuery("from CourseOffering").list();
 	}
 
 	@Override
-	public List<CourseOfferingId> findToTeach() {
+	public List<CourseOffering> findToTeach() {
 		// TODO Auto-generated method stub
-		return null;
+		return getSession().createQuery("from CourseOffering where lecturer is not null").list();
 	}
 
 }

@@ -42,4 +42,10 @@ public class Grade implements ValueObject<Grade> {
 		
 		return sameValueAs(other);
 	}
+	
+	Grade() {
+		
+	}
+	
+	Long id;
 }

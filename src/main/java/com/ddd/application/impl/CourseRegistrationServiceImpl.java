@@ -37,12 +37,6 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 		List<CourseOffering> courseOfferings = Collections.emptyList();
 		return courseOfferings;
 	}
-
-	@Override
-	public CourseOffering AddStudentToRoster(CourseOffering courseOffering, Student student) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
 	public void createSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds) {

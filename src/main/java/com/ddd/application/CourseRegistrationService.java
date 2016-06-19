@@ -9,9 +9,9 @@ import com.ddd.domain.model.student.StudentId;
 
 public interface CourseRegistrationService {
 	public List<CourseOffering> requestPossibleCourseOfferings();
-	CourseOffering AddStudentToRoster(CourseOffering courseOffering, Student student);
 	
 	public void createSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds);
 	public void updateSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds);
 	public void deleteSchedule(StudentId studentId);
+
 }
