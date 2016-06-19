@@ -13,5 +13,4 @@ public interface CourseRegistrationService {
 	public void createSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds);
 	public void updateSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds);
 	public void deleteSchedule(StudentId studentId);
-
 }

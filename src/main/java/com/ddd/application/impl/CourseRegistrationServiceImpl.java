@@ -20,35 +20,41 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 	private final CourseOfferingRepository courseOfferingRepository;
 	private final ScheduleMaintenanceService scheduleMaintenanceService;
 	private final StudentMaintenanceService studentMaintenanceService;
+	private final com.ddd.domain.service.CourseRegistrationService courseRegistrationService;
 	
 	public CourseRegistrationServiceImpl(StudentRepository studentRepository, 
 			CourseOfferingRepository courseOfferingRepository,
 			ScheduleMaintenanceService scheduleMaintenanceService,
-			StudentMaintenanceService studentMaintenanceService) {
+			StudentMaintenanceService studentMaintenanceService,
+			com.ddd.domain.service.CourseRegistrationService courseRegistrationService) {
 		// TODO Auto-generated constructor stub
 		this.studentRepository = studentRepository;
 		this.courseOfferingRepository = courseOfferingRepository;
 		this.scheduleMaintenanceService = scheduleMaintenanceService;
 		this.studentMaintenanceService = studentMaintenanceService;
+		this.courseRegistrationService = courseRegistrationService;
 	}
 	@Override
 	public List<CourseOffering> requestPossibleCourseOfferings() {
 		// TODO Auto-generated method stub
-		List<CourseOffering> courseOfferings = Collections.emptyList();
+		List<CourseOffering> courseOfferings = courseOfferingRepository.findAll();
 		return courseOfferings;
 	}
 	
 	@Override
 	public void createSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds) {
 		// TODO Auto-generated method stub
-//		Student student = studentRepository.find(studentId);
-//		List<CourseOffering> courseOfferings = Collections.emptyList();
-//		Schedule schedule = new Schedule(courseOfferings);
-//		ReportCard reportCard = studentMaintenanceService.fetchReportCardForCourseOfferings(courseOfferings);
-//		
-//		student.assignSchedule(schedule);
-//		student.assignReportCard(reportCard);
-//		studentRepository.update(student);
+		Student student = studentRepository.find(studentId);
+		List<CourseOffering> courseOfferings = Collections.emptyList();
+		Schedule schedule = new Schedule(courseOfferings);
+		ReportCard reportCard = courseRegistrationService.fetchReportCardForCourseOfferings(courseOfferings);
+
+		student.assignSchedule(schedule);
+		student.assignReportCard(reportCard);
+		
+		courseRegistrationService.AddStudentToRoster(courseOfferings, student);
+		
+		studentRepository.store(student);
 	}
 	
 	@Override
@@ -57,15 +63,23 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 //		Student student = studentRepository.find(studentId);
 //		List<CourseOffering> courseOfferings = Collections.emptyList();
 //		Schedule schedule = new Schedule(courseOfferings);
+//		
 //		student.assignSchedule(schedule);
+//		
 //		studentRepository.update(student);
 	}
 	
 	@Override
 	public void deleteSchedule(StudentId studentId) {
 		// TODO Auto-generated method stub
-//		Student student = studentRepository.find(studentId);
-//		scheduleMaintenanceService.delete(studentId);
-//		studentRepository.update(student);
+		Student student = studentRepository.find(studentId);
+		List<CourseOffering> courseOfferings = student.schedule().courseOfferings();
+		
+		courseRegistrationService.deleteStudentFromRoster(courseOfferings ,student);
+		
+		student.unassignSchedule();
+		student.unassignReportCard();
+		
+		studentRepository.store(student);
 	}
 }

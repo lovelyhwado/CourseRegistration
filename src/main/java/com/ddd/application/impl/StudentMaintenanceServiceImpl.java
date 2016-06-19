@@ -10,12 +10,9 @@ import com.ddd.domain.model.student.StudentRepository;
 
 public class StudentMaintenanceServiceImpl implements StudentMaintenanceService {
 	private final StudentRepository studentRepository;
-	private final CourseOfferingRepository courseOfferingRepository;
 	
-	public StudentMaintenanceServiceImpl(final StudentRepository studentRepository,
-			final CourseOfferingRepository courseOfferingRepository) {
+	public StudentMaintenanceServiceImpl(final StudentRepository studentRepository) {
 		this.studentRepository = studentRepository;
-		this.courseOfferingRepository = courseOfferingRepository;
 	}
 	
 	@Override
@@ -39,7 +36,7 @@ public class StudentMaintenanceServiceImpl implements StudentMaintenanceService 
 			student.setDateOfBirth(dateOfBirth);;
 		}
 		
-		studentRepository.update(student);
+		studentRepository.store(student);
 	}
 	
 	public void deleteStudent(StudentId studentId){

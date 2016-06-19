@@ -18,6 +18,11 @@ public class Schedule implements ValueObject<Schedule>{
 		
 		this.courseOfferings = courseOfferings;
 	}
+	
+	public List<CourseOffering> courseOfferings(){
+		return this.courseOfferings;
+	}
+	
 	@Override
 	public boolean sameValueAs(Schedule other) {
 		// TODO Auto-generated method stub
