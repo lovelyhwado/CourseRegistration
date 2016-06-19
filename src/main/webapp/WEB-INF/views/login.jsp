@@ -11,17 +11,17 @@
 </head>
 <body>
 	<h1>Course Registration System - Login</h1>
-	<form>
+	<form action="login">
 		<div class="form-group">
-			<select class="form-control">
+			<select class="form-control" name="type">
 				<option value="student">Student</option>
 				<option value="professor">Professor</option>
 				<option value="registrar">Registrar</option>
 			</select>
 		</div>
 	    <div class="form-group">
-	      <label for="name">Name</label>
-	      <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" />
+	      <label for="id">Id</label>
+	      <input type="text" name="id" class="form-control" id="id" placeholder="Enter your Id" />
 	    </div>
 	    <button type="submit" class="btn btn-primary">Login</button>
 	</form>
