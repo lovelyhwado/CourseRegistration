@@ -33,6 +33,7 @@ public class ProfessorMaintenanceServiceImpl implements ProfessorMaintenanceServ
 	public void deleteProfessorCourse(ProfessorID professorID)
 	{
 		Professor professor = professorRepository.find(professorID);
+	    professor =null;
 		professorRepository.delete(professor);
 		
 	}
@@ -42,6 +43,7 @@ public class ProfessorMaintenanceServiceImpl implements ProfessorMaintenanceServ
 	{
 		Professor professor = professorRepository.find(professorID);
 		professor.getCourse().add(course);
+		professorRepository.store(professor); // update or save
 		
 	}
 	@Override
@@ -49,6 +51,7 @@ public class ProfessorMaintenanceServiceImpl implements ProfessorMaintenanceServ
 	{
 		Professor professor = professorRepository.find(professorID);
 		professor.getCourse().remove(course);
+		professorRepository.store(professor);
 	}
 
 }
