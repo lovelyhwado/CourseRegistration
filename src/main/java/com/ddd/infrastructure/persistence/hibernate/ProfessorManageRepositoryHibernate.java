@@ -1,6 +1,7 @@
 package com.ddd.infrastructure.persistence.hibernate;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.ddd.domain.model.professor.Professor;
 import com.ddd.domain.model.professor.ProfessorID;
@@ -34,5 +35,15 @@ public class ProfessorManageRepositoryHibernate extends HibernateRepository impl
 	  public void delete(Professor Professor)
 	  {
 		  getSession().delete(Professor);
+	  }
+	  
+	  @Override
+	  public ProfessorID nextProfessorID()
+	  {
+		   
+		    final String random = UUID.randomUUID().toString().toUpperCase();
+		    return new ProfessorID(
+		      random.substring(0, random.indexOf("-"))
+		    );
 	  }
 }
