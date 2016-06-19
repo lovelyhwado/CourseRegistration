@@ -9,8 +9,11 @@
   <session-factory>
     <!-- Properties defined here are shared between test and production -->
     <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-    
+	
+	<mapping resource="com/ddd/infrastructure/persistence/hibernate/Student.hbm.xml" />
+	<mapping resource="com/ddd/infrastructure/persistence/hibernate/Professor.hbm.xml" />    
     <mapping resource="com/ddd/infrastructure/persistence/hibernate/CourseOffering.hbm.xml" />
+   
     
   </session-factory>
 

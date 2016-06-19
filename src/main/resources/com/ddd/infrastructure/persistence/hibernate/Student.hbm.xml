@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+  <class name="com.ddd.domain.model.student.Student" table="Student">
+
+    <id name="id" column="id">
+      <generator class="org.hibernate.id.IdentityGenerator"/>
+    </id>
+
+    <component name="studentId" unique="true" update="false">
+      <property name="id" column="studentId"/>
+    </component>
+    
+    <component name="name">
+      <property name="name" column="name" not-null="true"/>
+    </component>
+    
+    <property name="dateOfBirth" column="dateOfBirth" not-null="true">
+      
+    </property>
+    
+    <component name="schedule">
+    	<list name="courseOffering" cascade="all">
+    		<key column="courseOfferingId" foreign-key="courseOfferingFK"/>
+    		<index column="courseOfferingIndex" />
+    		<one-to-many class="com.ddd.domain.model.course.CourseOffering" />
+    	</list>
+    </component>
+    
+    
+	
+  </class>
+</hibernate-mapping>

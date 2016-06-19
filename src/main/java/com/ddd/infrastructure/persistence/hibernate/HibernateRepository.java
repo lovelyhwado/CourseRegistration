@@ -2,6 +2,7 @@ package com.ddd.infrastructure.persistence.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Required;
 
 /**

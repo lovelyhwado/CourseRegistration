@@ -69,13 +69,13 @@ public class CourseOffering implements Entity<CourseOffering> {
 		return other!= null && course.sameValueAs(other.course);
 	}
 	
-//	public int hashCode() {
-//		return CourseOfferingId.hashCode();
-//	}
-//	
-//	public String toString() {
-//		return CourseOfferingId.toString();
-//	}
+	public int hashCode() {
+		return courseOfferingId.hashCode();
+	}
+	
+	public String toString() {
+		return courseOfferingId.toString();
+	}
 	
 	CourseOffering() {
 		

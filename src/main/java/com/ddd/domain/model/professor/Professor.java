@@ -53,4 +53,10 @@ public class Professor implements Entity<Professor> {
 		return other !=null && professorID.sameValueAs(other.professorID);
 	
 	}
+	
+	Professor() {
+		
+	}
+	
+	Long id;
 }
