@@ -38,7 +38,7 @@
     <component name="roster">
     	<list name="students" cascade="all">
     		<key column="studentId" foreign-key="rosterFK"/>
-    		<index column="student_index" />
+    		<index column="studentIndex" />
     		<one-to-many class="com.ddd.domain.model.student.Student" />
     	</list>
     </component>

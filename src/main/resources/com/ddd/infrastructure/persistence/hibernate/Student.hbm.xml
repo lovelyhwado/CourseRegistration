@@ -20,11 +20,13 @@
     </component>
     
     <property name="dateOfBirth" column="dateOfBirth" not-null="true">
-      
+      <type name="org.hibernate.type.DateType">
+      	
+      </type>
     </property>
     
     <component name="schedule">
-    	<list name="courseOffering" cascade="all">
+    	<list name="courseOfferings" cascade="all">
     		<key column="courseOfferingId" foreign-key="courseOfferingFK"/>
     		<index column="courseOfferingIndex" />
     		<one-to-many class="com.ddd.domain.model.course.CourseOffering" />

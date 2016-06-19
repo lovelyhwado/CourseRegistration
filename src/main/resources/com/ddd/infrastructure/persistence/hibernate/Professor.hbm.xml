@@ -16,7 +16,7 @@
     </component>
 
 	<component name="professorName">
-		<property name="professorName" column="name"/>
+		<property name="ProfessorName" column="name"/>
 	</component>
 	
 	

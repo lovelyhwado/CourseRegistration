@@ -86,4 +86,9 @@ public class Student implements Entity<Student> {
 		return studentId.toString();
 	}
 	
+	Student() {
+		//for hibernate
+	}
+	
+	Long id; //for hibernate
 }
