@@ -19,11 +19,11 @@
       <property name="name" column="name" not-null="true"/>
     </component>
     
-    <property name="dateOfBirth" column="dateOfBirth" not-null="true">
-      <type name="org.hibernate.type.DateType">
-      	
-      </type>
-    </property>
+    <component name="dateOfBirth">
+      <property name="dateOfBirth" column="dateOfBirth" not-null="true">
+      	<type name="org.hibernate.type.DateType" />
+      </property>
+    </component>
     
     <component name="schedule">
     	<list name="courseOfferings" cascade="all">
@@ -33,6 +33,13 @@
     	</list>
     </component>
     
+    <component name="reportCard">
+    	<list name="grades" cascade="all">
+    		<key column="studentId" foreign-key="reportCardFK" />
+    		<index column="gradeIndex" />
+			<one-to-many class="com.ddd.domain.model.student.Grade" />
+    	</list>
+    </component>
     
 	
   </class>

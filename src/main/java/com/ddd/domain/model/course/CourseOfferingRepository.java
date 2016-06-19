@@ -6,6 +6,6 @@ public interface CourseOfferingRepository {
 	
 	CourseOffering find(CourseOfferingId courseOfferingId);
 
-	List<CourseOfferingId> findAll();
-	List<CourseOfferingId> findToTeach();
+	List<CourseOffering> findAll();
+	List<CourseOffering> findToTeach();
 }
