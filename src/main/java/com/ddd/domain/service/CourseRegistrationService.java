@@ -9,5 +9,5 @@ import com.ddd.domain.model.student.Student;
 public interface CourseRegistrationService {
 	public CourseOffering AddStudentToRoster(List<CourseOffering> courseOfferings, Student student);
 	public void deleteStudentFromRoster(List<CourseOffering> courseOfferings, Student student);
-	public ReportCard fetchReportCardForCourseOfferings(List<CourseOffering> courseOfferings);
+//	public ReportCard fetchReportCardForCourseOfferings(List<CourseOffering> courseOfferings);
 }

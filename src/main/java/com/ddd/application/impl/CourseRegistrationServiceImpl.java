@@ -47,7 +47,7 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 		Student student = studentRepository.find(studentId);
 		List<CourseOffering> courseOfferings = Collections.emptyList();
 		Schedule schedule = new Schedule(courseOfferings);
-		ReportCard reportCard = courseRegistrationService.fetchReportCardForCourseOfferings(courseOfferings);
+		ReportCard reportCard = studentMaintenanceService.fetchReportCardForCourseOfferings(courseOfferings);
 
 		student.assignSchedule(schedule);
 		student.assignReportCard(reportCard);
@@ -60,13 +60,15 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 	@Override
 	public void updateSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds) {
 		// TODO Auto-generated method stub
-//		Student student = studentRepository.find(studentId);
-//		List<CourseOffering> courseOfferings = Collections.emptyList();
-//		Schedule schedule = new Schedule(courseOfferings);
-//		
+		Student student = studentRepository.find(studentId);
+		List<CourseOffering> courseOfferings = Collections.emptyList();
+		Schedule schedule = new Schedule(courseOfferings);
+		
+		
+		
 //		student.assignSchedule(schedule);
-//		
 //		studentRepository.update(student);
+		
 	}
 	
 	@Override
