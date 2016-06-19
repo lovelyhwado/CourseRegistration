@@ -12,7 +12,9 @@
     </id>
 
     <component name="courseOfferingId" unique="true" update="false">
-      <property name="id" column="courseOfferingId"/>
+      <property name="id" column="courseOfferingId">
+      	<type name="org.hibernate.type.BigIntegerType"></type>
+      </property>
     </component>
     
     <component name="course" update="false">
@@ -36,11 +38,14 @@
     </property>
     
     <component name="roster">
-    	<list name="students" cascade="all">
-    		<key column="studentId" foreign-key="rosterFK"/>
-    		<index column="studentIndex" />
-    		<one-to-many class="com.ddd.domain.model.student.Student" />
-    	</list>
+	    <set name="students" table="course_student" inverse="false" lazy="true" fetch="select" cascade="all">
+	    	<key>
+	    		<column name="courseOfferingId" not-null="true" />
+	    	</key>
+	    	<many-to-many entity-name="com.ddd.domain.model.student.Student">
+	    		<column name="studentId" not-null="true"/>
+	    	</many-to-many>
+	    </set>
     </component>
     
     <many-to-one name="lecturer" column="lecturer_id" not-null="false" cascade="none" update="false" foreign-key="lecturerFK"/>

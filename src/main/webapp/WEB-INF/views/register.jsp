@@ -13,8 +13,6 @@
 	<h1>Course Registration System - Register Course</h1>
 	<form>
     <div class="form-group">
-      <label for="student-id">Student Id</label>
-      <input type="text" name="student-id" class="form-control" id="student-id"/>
     </div>
     <button type="submit" name="btn btn-primary">Delete</button>
 	</form>

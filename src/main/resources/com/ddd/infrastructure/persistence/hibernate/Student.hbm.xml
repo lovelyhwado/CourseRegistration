@@ -12,7 +12,7 @@
     </id>
 
     <component name="studentId" unique="true" update="false">
-      <property name="id" column="studentId"/>
+      <property name="id" column="studentId" />
     </component>
     
     <component name="name">
@@ -26,11 +26,14 @@
     </component>
     
     <component name="schedule">
-    	<list name="courseOfferings" cascade="all">
-    		<key column="courseOfferingId" foreign-key="courseOfferingFK"/>
-    		<index column="courseOfferingIndex" />
-    		<one-to-many class="com.ddd.domain.model.course.CourseOffering" />
-    	</list>
+    	<set name="courseOfferings" table="course_student" inverse="true" lazy="true" fetch="select" cascade="all">
+	    	<key>
+	    		<column name="studentId" not-null="true" />
+	    	</key>
+	    	<many-to-many entity-name="com.ddd.domain.model.course.CourseOffering">
+	    		<column name="courseOfferingId" not-null="true"/>
+	    	</many-to-many>
+	    </set>
     </component>
     
     <component name="reportCard">

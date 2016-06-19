@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-	<h1>Course Registration System</h1>
-
+	<h1>Course Registration System - Student</h1>
+	
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>

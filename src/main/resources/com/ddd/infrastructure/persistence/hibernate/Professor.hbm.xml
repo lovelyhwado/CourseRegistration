@@ -12,7 +12,7 @@
     </id>
 
     <component name="professorID" unique="true" update="false">
-      <property name="id" column="professorID"/>
+      <property name="id" column="professorID" />
     </component>
 
 	<component name="professorName">
