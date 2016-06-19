@@ -15,7 +15,9 @@ public interface ProfessorRepository {
 	  /**
 	   * @return A unique, generated tracking Id.
 	   */
-	  Professor nextTrackingId();
+	 
+
+	void delete(Professor Professor);
 
 }
 
