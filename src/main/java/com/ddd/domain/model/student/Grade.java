@@ -1,5 +1,6 @@
 package com.ddd.domain.model.student;
 
+import org.apache.commons.lang.Validate;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -8,9 +9,14 @@ import com.ddd.domain.shared.ValueObject;
 
 public class Grade implements ValueObject<Grade> {
 	
-	private GradeValue gradeValue;
 	private CourseOffering courseOffering;
+	private GradeValue gradeValue;
 	
+	public Grade(CourseOffering courseOffering, GradeValue gradeValue) {
+		Validate.notNull(courseOffering);
+		this.courseOffering = courseOffering;
+		this.gradeValue = gradeValue;
+	}
 	@Override
 	public boolean sameValueAs(Grade other) {
 		return other != null && new EqualsBuilder().

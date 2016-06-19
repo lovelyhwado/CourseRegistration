@@ -42,10 +42,21 @@ public class Student implements Entity<Student> {
 	}
 	
 	public void assignSchedule(Schedule schedule){
-		Validate.notNull(schedule, "schedule is required for assignment");
-		
+		Validate.notNull(schedule);
 		this.schedule = schedule;
-		this.reportCard = reportCard.updateReportCard(schedule);
+	}
+	
+	public void unassignSchedule(){
+		this.schedule = null;
+	}
+	
+	public void assignReportCard(ReportCard reportCard){
+		Validate.notNull(reportCard);
+		this.reportCard = reportCard;
+	}
+	
+	public void unassignReportCard(){
+		this.reportCard = null;
 	}
 	
 	public void setName(Name name){
@@ -57,7 +68,6 @@ public class Student implements Entity<Student> {
 		Validate.notNull(dateOfBirth);
 		this.dateOfBirth = dateOfBirth;
 	}
-	
 	
 	@Override
 	public boolean sameIdentityAs(final Student other) {

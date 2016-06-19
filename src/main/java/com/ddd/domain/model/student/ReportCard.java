@@ -10,14 +10,12 @@ import com.ddd.domain.shared.ValueObject;
 public class ReportCard implements ValueObject<ReportCard> {
 	private List<Grade> grades = Collections.emptyList();
 	
-	public ReportCard(Schedule schedule) {
-		// TODO Auto-generated constructor stub
-		
+	public ReportCard(List<Grade> grades) {
+		this.grades = grades;
 	}
 	
-	ReportCard updateReportCard(Schedule schedule){
-		Validate.notNull(schedule, "schedule is required for assignment");
-		return new ReportCard(schedule);
+	public void assignGrades(List<Grade> grades){
+		this.grades = grades;
 	}
 	
 	@Override
