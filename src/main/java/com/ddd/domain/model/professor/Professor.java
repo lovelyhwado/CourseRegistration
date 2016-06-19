@@ -61,6 +61,12 @@ public class Professor implements Entity<Professor> {
 	public void setProfessorID(ProfessorID professorID) {
 		this.professorID = professorID;
 	}
+	public ProfessorName getProfessorName() {
+		return professorName;
+	}
+	public void setProfessorName(ProfessorName professorName) {
+		this.professorName = professorName;
+	}
 	
 	Long id;
 	
