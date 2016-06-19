@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0"?>
+<?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:tx="http://www.springframework.org/schema/tx"
@@ -7,15 +7,13 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-  Persistence - database, Hibernate, transactions, repository implementations
+  <!-- Persistence - database, Hibernate, transactions, repository implementations -->
   
   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     <property name="url" value="jdbc:mysql://localhost:3306/course"/>
     <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
     <property name="username" value="root"/>
     <property name="password" value="root"/>
-    <property name="initialSize" value="4"/>
-    <property name="defaultAutoCommit" value="false"/>
   </bean>
   
   <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -43,4 +41,4 @@
     <property name="sessionFactory" ref="sessionFactory"/>
   </bean>
 
-</beans> -->
+</beans>

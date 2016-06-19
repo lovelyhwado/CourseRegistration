@@ -3,6 +3,8 @@ package com.ddd.infrastructure.persistence.hibernate;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+
 import com.ddd.domain.model.student.Student;
 import com.ddd.domain.model.student.StudentId;
 import com.ddd.domain.model.student.StudentRepository;

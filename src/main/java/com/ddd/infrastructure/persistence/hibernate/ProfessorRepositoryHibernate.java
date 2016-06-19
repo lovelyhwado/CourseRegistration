@@ -7,7 +7,7 @@ import com.ddd.domain.model.professor.Professor;
 import com.ddd.domain.model.professor.ProfessorID;
 import com.ddd.domain.model.professor.ProfessorRepository;
 
-public class ProfessorManageRepositoryHibernate extends HibernateRepository implements ProfessorRepository{
+public class ProfessorRepositoryHibernate extends HibernateRepository implements ProfessorRepository{
 	  
 	  @Override
 	  public Professor find(ProfessorID ProfessorID)

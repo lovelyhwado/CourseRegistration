@@ -9,6 +9,13 @@
   <session-factory>
     <!-- Properties defined here are shared between test and production -->
     <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+	<property name="connection.url">
+    	jdbc:mysql://localhost:3306/course
+	</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">root</property>
+	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 	
 	<mapping resource="com/ddd/infrastructure/persistence/hibernate/Student.hbm.xml" />
 	<mapping resource="com/ddd/infrastructure/persistence/hibernate/Professor.hbm.xml" />    
