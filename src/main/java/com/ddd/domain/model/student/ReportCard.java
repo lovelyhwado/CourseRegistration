@@ -14,6 +14,10 @@ public class ReportCard implements ValueObject<ReportCard> {
 		this.grades = grades;
 	}
 	
+	public List<Grade> grades(){
+		return this.grades;
+	}
+	
 	public void assignGrades(List<Grade> grades){
 		this.grades = grades;
 	}

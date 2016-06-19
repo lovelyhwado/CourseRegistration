@@ -1,7 +1,10 @@
 package com.ddd.application.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.commons.lang.Validate;
 
 import com.ddd.application.CourseRegistrationService;
 import com.ddd.domain.model.course.CourseOffering;
@@ -27,7 +30,6 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 			ScheduleMaintenanceService scheduleMaintenanceService,
 			StudentMaintenanceService studentMaintenanceService,
 			com.ddd.domain.service.CourseRegistrationService courseRegistrationService) {
-		// TODO Auto-generated constructor stub
 		this.studentRepository = studentRepository;
 		this.courseOfferingRepository = courseOfferingRepository;
 		this.scheduleMaintenanceService = scheduleMaintenanceService;
@@ -36,17 +38,15 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 	}
 	@Override
 	public List<CourseOffering> requestPossibleCourseOfferings() {
-		// TODO Auto-generated method stub
 		List<CourseOffering> courseOfferings = courseOfferingRepository.findAll();
 		return courseOfferings;
 	}
 	
 	@Override
 	public void createSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds) {
-		// TODO Auto-generated method stub
 		Student student = studentRepository.find(studentId);
-		List<CourseOffering> courseOfferings = Collections.emptyList();
-		Schedule schedule = new Schedule(courseOfferings);
+		List<CourseOffering> courseOfferings = courseOfferingsByIds(courseOfferingIds);
+		Schedule schedule = studentMaintenanceService.fetchScheduleForCourseOfferings(courseOfferings);
 		ReportCard reportCard = studentMaintenanceService.fetchReportCardForCourseOfferings(courseOfferings);
 
 		student.assignSchedule(schedule);
@@ -59,23 +59,32 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 	
 	@Override
 	public void updateSchedule(StudentId studentId, List<CourseOfferingId> courseOfferingIds) {
-		// TODO Auto-generated method stub
 		Student student = studentRepository.find(studentId);
-		List<CourseOffering> courseOfferings = Collections.emptyList();
-		Schedule schedule = new Schedule(courseOfferings);
+		List<CourseOffering> courseOfferings = courseOfferingsByIds(courseOfferingIds);
 		
+		Schedule newSchedule = studentMaintenanceService.fetchScheduleForCourseOfferings(courseOfferings);
 		
+		Validate.notNull(newSchedule);
 		
+		List<CourseOffering> previousCourseOfferings = student.schedule().courseOfferings();
+		previousCourseOfferings.removeAll(courseOfferings);
+		
+		courseRegistrationService.deleteStudentFromRoster(previousCourseOfferings, student);
 		courseRegistrationService.AddStudentToRoster(courseOfferings, student);
 		
-//		student.assignSchedule(schedule);
-//		studentRepository.update(student);
+		ReportCard reportCard = student.reportCard();
 		
+		reportCard = studentMaintenanceService.deleteCourseOfferingsFromReportCard(previousCourseOfferings, reportCard);
+		reportCard = studentMaintenanceService.addCourseOfferingsToReportCard(courseOfferings, reportCard);
+		
+		student.assignReportCard(reportCard);
+		student.assignSchedule(newSchedule);
+		
+		studentRepository.store(student);
 	}
 	
 	@Override
 	public void deleteSchedule(StudentId studentId) {
-		// TODO Auto-generated method stub
 		Student student = studentRepository.find(studentId);
 		List<CourseOffering> courseOfferings = student.schedule().courseOfferings();
 		
@@ -85,5 +94,14 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 		student.unassignReportCard();
 		
 		studentRepository.store(student);
+	}
+	
+	
+	private List<CourseOffering> courseOfferingsByIds(List<CourseOfferingId> courseOfferingIds){
+		List<CourseOffering> courseOfferings = new ArrayList<>();
+		for(CourseOfferingId courseOfferingId : courseOfferingIds){
+			courseOfferings.add(courseOfferingRepository.find(courseOfferingId));
+		}
+		return courseOfferings;
 	}
 }

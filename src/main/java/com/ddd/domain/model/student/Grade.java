@@ -17,6 +17,15 @@ public class Grade implements ValueObject<Grade> {
 		this.courseOffering = courseOffering;
 		this.gradeValue = gradeValue;
 	}
+	
+	public CourseOffering courseOffering(){
+		return this.courseOffering;
+	}
+	
+	public GradeValue gradeValue(){
+		return this.gradeValue;
+	}
+	
 	@Override
 	public boolean sameValueAs(Grade other) {
 		return other != null && new EqualsBuilder().

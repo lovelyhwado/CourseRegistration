@@ -30,12 +30,6 @@ public class StudentRepositoryHibernate extends HibernateRepository implements S
 	}
 
 	@Override
-	public void update(Student student) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void delete(StudentId studentId) {
 		getSession().createQuery("delete from Student where studentId = :studentId")
 					.setParameter("studentId", studentId)
