@@ -12,15 +12,16 @@
 <body>
 	<h1>Course Registration System - Login</h1>
 	<form>
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" />
-    </div>
-    <button type="submit" name="btn btn-primary">Login</button>
+		<select class="form-group">
+			<option value="student">Student</option>
+			<option value="professor">Professor</option>
+			<option value="registrar">Registrar</option>
+		</select>
+	    <div class="form-group">
+	      <label for="name">Name</label>
+	      <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" />
+	    </div>
+	    <button type="submit" name="btn btn-primary">Login</button>
 	</form>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

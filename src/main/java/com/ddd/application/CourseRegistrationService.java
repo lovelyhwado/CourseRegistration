@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.ddd.domain.model.course.CourseOffering;
 import com.ddd.domain.model.course.CourseOfferingId;
-import com.ddd.domain.model.student.Student;
 import com.ddd.domain.model.student.StudentId;
 
 public interface CourseRegistrationService {
