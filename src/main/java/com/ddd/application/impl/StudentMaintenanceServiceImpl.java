@@ -13,7 +13,7 @@ import com.ddd.domain.model.student.StudentRepository;
 public class StudentMaintenanceServiceImpl implements StudentMaintenanceService {
 	private final StudentRepository studentRepository;
 	
-	private StudentMaintenanceServiceImpl(final StudentRepository studentRepository) {
+	public StudentMaintenanceServiceImpl(final StudentRepository studentRepository) {
 		this.studentRepository = studentRepository;
 	}
 	

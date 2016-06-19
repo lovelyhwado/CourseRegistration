@@ -1,0 +1,46 @@
+<!-- <?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+  Persistence - database, Hibernate, transactions, repository implementations
+  
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="url" value="jdbc:mysql://localhost:3306/course"/>
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="username" value="root"/>
+    <property name="password" value="root"/>
+    <property name="initialSize" value="4"/>
+    <property name="defaultAutoCommit" value="false"/>
+  </bean>
+  
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="configLocation" value="classpath:/hibernate.cfg.xml"/>
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+  <tx:annotation-driven transaction-manager="transactionManager"/>
+
+  <bean id="studentRepository" class="com.ddd.infrastructure.persistence.hibernate.StudentRepositoryHibernate">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+  <bean id="courseOfferingRepository"
+        class="com.ddd.infrastructure.persistence.hibernate.CourseOfferingRepositoryHibernate">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+  <bean id="professorRepository"
+        class="com.ddd.infrastructure.persistence.hibernate.ProfessorRepositoryHibernate">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+</beans> -->
