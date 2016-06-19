@@ -14,10 +14,4 @@ public class CourseRegistrationServiceImpl implements CourseRegistrationService 
 		return null;
 	}
 
-	@Override
-	public CourseOffering AddStudentToRoster(CourseOffering courseOffering, Student student) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
