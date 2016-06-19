@@ -53,5 +53,11 @@ public class ProfessorMaintenanceServiceImpl implements ProfessorMaintenanceServ
 		professor.getCourse().remove(course);
 		professorRepository.store(professor);
 	}
+	@Override
+	public Professor getProfessor(ProfessorID professorid)
+	{
+		Professor professor = professorRepository.find(professorid);
+		return professor;
+	}
 
 }
