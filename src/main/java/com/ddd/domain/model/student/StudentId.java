@@ -6,7 +6,12 @@ import com.ddd.domain.shared.ValueObject;
 
 public class StudentId implements ValueObject<StudentId> {
 	private String id;
-	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public StudentId(final String id) {
 		Validate.notNull(id);
 		this.id = id;

@@ -10,7 +10,9 @@ public class DateOfBirth implements ValueObject<DateOfBirth>{
 	public DateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
+	DateOfBirth () {
+		this.dateOfBirth = new Date();
+	}
 	@Override
 	public boolean sameValueAs(DateOfBirth other) {
 		// TODO Auto-generated method stub

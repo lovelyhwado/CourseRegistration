@@ -1,10 +1,10 @@
 package com.ddd.domain.model.student;
 
 import org.apache.commons.lang.Validate;
-
 import com.ddd.domain.shared.Entity;
 
 public class Student implements Entity<Student> {
+	
 	private StudentId studentId;
 	private Name name;
 	private DateOfBirth dateOfBirth;
@@ -100,5 +100,5 @@ public class Student implements Entity<Student> {
 		//for hibernate
 	}
 	
-	Long id; //for hibernate
+	String id; //for hibernate
 }

@@ -16,6 +16,7 @@
 	<property name="connection.username">root</property>
 	<property name="connection.password">root</property>
 	<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+	<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 	
 	<mapping resource="com/ddd/infrastructure/persistence/hibernate/Student.hbm.xml" />
 	<mapping resource="com/ddd/infrastructure/persistence/hibernate/Professor.hbm.xml" />    

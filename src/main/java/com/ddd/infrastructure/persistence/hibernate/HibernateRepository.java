@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
 
 
 /**
@@ -35,7 +36,7 @@ public class HibernateRepository {
   }
 
   protected Session getSession() {
-    return sessionFactory.getCurrentSession();
+    return sessionFactory.openSession();
   }
 
   

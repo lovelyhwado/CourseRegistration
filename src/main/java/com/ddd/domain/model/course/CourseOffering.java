@@ -92,5 +92,5 @@ public class CourseOffering implements Entity<CourseOffering> {
 		
 	}
 	
-	private Long id;
+	private String id;
 }

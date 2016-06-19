@@ -12,6 +12,9 @@ public class Name implements ValueObject<Name> {
 		this.name = name;
 	}
 	
+	Name () {
+		this.name = "";
+	}
 	@Override
 	public boolean sameValueAs(Name other) {
 		// TODO Auto-generated method stub
